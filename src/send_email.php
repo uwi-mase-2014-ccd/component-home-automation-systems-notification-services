@@ -10,6 +10,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	
 	try {
 	
+		if (!isset($_POST["To"]) || !isset($_POST["Subject"]) || !isset($_POST["Body"])) {
+			$response = array(
+				'code' => 400,
+				'data' => new stdClass,
+				'debug' => array(
+					'data' => new stdClass,
+					'message' => 'This service requires the following arguments [To, Body, Subject]. THe request body must be formatted as URL-Form-Encoded'
+				)
+			);
+	
+			die(json_encode($response, JSON_PRETTY_PRINT));
+		}
 		//echo "Constants Created\n";
 	
 		$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 587,'tls');
