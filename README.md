@@ -72,12 +72,12 @@ If the recipient address does not match the typically expected pattern for an em
 If a required argument is not submitted, a response similar to the following sample response is returned:
 ```javascript
 {
-    "code": 400,
-    "data": {},
-    "debug": {
-        "data": {},
-        "message": "This service requires the following arguments [To, Body, Subject]. The request body must be formatted as URL-Form-Encoded"
-    }
+	"code": 400,
+	"data": {},
+	"debug": {
+		"data": {},
+		"message": "This service requires the following arguments [To, Body, Subject]. The request body must be formatted as URL-Form-Encoded"
+	}
 }
 ```
 	Refer to schema: response-400.json
