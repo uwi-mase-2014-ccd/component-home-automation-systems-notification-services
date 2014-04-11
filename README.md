@@ -31,7 +31,7 @@ This component has been deployed to the UWI server at the endpoint:
 		within the recipient's desired email client. 
 
 	Body:
-		This STRING argument specifies the content of the email. Email content holds a 
+		This STRING argument specifies the content of the email. Email content has
 		'text/html' format in order to facilitate the inclusion of HTML within messages.
 		
 	
