@@ -2,7 +2,7 @@
   "type": "object",
   "$schema": "http://json-schema.org/draft-03/schema",
   "id": "http://cs-proj-srv:8083/service-email/src/send_email.php",
-  "required": false,
+  "required": true,
   "properties": {
     "code": {
       "type": "number",

@@ -1,5 +1,7 @@
 Project H.A.S Component - Email Notification Documentation
 ------------------------------------------------------------
+Author Group: **Home Automation Systems**
+
 Prepared for: Dr. Curtis Busby-Earle
 
 Prepared by: Aston Hamilton, Renee Whitelocke, Orane Edwards
@@ -10,12 +12,10 @@ Version number: 000-0002
 
 
 ##Component Description
-The purpose of this component is to provide a client with Email Notification
+The purpose of this component is to provide a client with Email Notification. It accepts a recipient email address, an email subject and body, and it composes the email and send it to the recipient from the _notifyhas@gmail.com_ email address.
 
 ##Services
-Email Notification Web Service
-
-The Email Notification web service was created with the aim of allowing integration with other components and other applications to serve the purpose of alerting a client when an email is sent. 
+The _Send Email Notification_ web service is exposed by this component, with the aim of allowing integration with other components and other applications to serve the purpose of alerting a client when an email is sent. 
 	
 ###Endpoint
 This component has been deployed to the UWI server at the endpoint: 
@@ -34,19 +34,81 @@ This component has been deployed to the UWI server at the endpoint:
 		This STRING argument specifies the content of the email. Email content has
 		'text/html' format in order to facilitate the inclusion of HTML within messages.
 		
-	
-###Description:
-+ Send Email Notification
-	This web service flexible message pushing service, which allows email notifications
-	to be sent directly to subscribed clients. It seamlessly integrates Google's 
-	email services with any application desirous of using this service.
-	
-###Success Schema:
-+ Email Notification
-	- On Success Refer to _**response-200.json**_
-	- On An Invalid HTTP Method or Invalid Parameters Refer to _**response-400.json**_
-	- On Any Other Error Refer to _**response-500.json**_
 
+###Responses:
+####Email Successfully Sent
+On Successful Authentication a response similar to the following sample response is returned:
+```javascript	
+{
+    "code": 200,
+    "data": {
+        "From": "notifyhas@gmail.com",
+        "To": "youremail@gmail.com",
+        "Subject": "testemail",
+        "Body": "fff"
+    },
+    "debug": {}
+}
+```
+	Refer to schema: response-200.json
+
+####Invalid Recipient Address
+If the recipient address does not match the typically expected pattern for an email address, a response similar to the following sample response is returned:
+```javascript	
+{
+    "code": 500,
+    "data": {},
+    "debug": {
+        "data": {
+            "Caught exception: ": "Address in mailbox given [youremail@gmail#com] does not comply with RFC 2822, 3.6.2."
+        },
+        "message": "An exception has occured."
+    }
+}
+```
+	Refer to schema: response-500.json
+
+####Invalid Arguments
+If a required argument is not submitted, a response similar to the following sample response is returned:
+```javascript
+{
+    "code": 400,
+    "data": {},
+    "debug": {
+        "data": {},
+        "message": "This service requires the following arguments [To, Body, Subject]. The request body must be formatted as URL-Form-Encoded"
+    }
+}
+```
+	Refer to schema: response-400.json
+	
+####Invalid HTTP Method
+On An Invalid HTTP Method a response similar to the following sample response is returned:
+```javascript
+{
+    "code": 400,
+    "data": {},
+    "debug": {
+        "data": {},
+        "message": "This service only accepts a POST Request."
+    }
+}
+```
+	Refer to schema: response-400.json
+	
+####Unexpected Error
+On Any Unexpected Error a response similar to the following sample response is returned:
+```javascript
+{
+    "code": 500,
+    "data": {},
+    "debug": {
+        "data": {},
+        "message": "An exception has occured"
+    }
+}
+```
+	Refer to schema: response-500.json
 
 ####Deployed Server Notes:
 This component has been deployed to a server that is provisioned by UWI and does not allow outbound connections.

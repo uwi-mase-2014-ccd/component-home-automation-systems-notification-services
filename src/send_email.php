@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		'data' => new stdClass,
 		'debug' => array(
 			'data' => new stdClass,
-			'message' => 'his service only accepts a POST Request.'
+			'message' => 'This service only accepts a POST Request.'
 		)
 	);
 	
