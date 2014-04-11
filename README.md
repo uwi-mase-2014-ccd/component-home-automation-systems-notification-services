@@ -1,5 +1,5 @@
-Project H.A.S Component - Email Notification Documentation
-------------------------------------------------------------
+Project H.A.S Component Documentation - Email Notification Component
+---------------------------------------------------------------------
 Author Group: **Home Automation Systems**
 
 Prepared for: Dr. Curtis Busby-Earle
