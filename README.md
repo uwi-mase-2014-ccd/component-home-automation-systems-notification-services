@@ -45,7 +45,7 @@ This component has been deployed to the UWI server at the endpoint:
 + Email Notification
 	- On Success Refer to _**response-200.json**_
 	- On An Invalid HTTP Method or Invalid Parameters Refer to _**response-400.json**_
-	- On Any Other Error Refer to _**response-503.json**_
+	- On Any Other Error Refer to _**response-500.json**_
 
 
 ####Deployed Server Notes:

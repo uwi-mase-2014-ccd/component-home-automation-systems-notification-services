@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		);
 	} catch (Exception $e) {
 		$response = array(
-			'code' => 503,
+			'code' => 500,
 			'data' => new stdClass,
 			'debug' => array(
 				'data' => array(

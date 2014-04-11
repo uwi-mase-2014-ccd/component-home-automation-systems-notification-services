@@ -1,46 +1,45 @@
 {
-	"type":"object",
-	"$schema": "http://json-schema.org/draft-03/schema",
-	"title": "Succesful Response",
-	"id": "http://cs-proj-srv:8083/service-email/src/send_email.php",
-	"required":false,
-	"properties":{
-		"code": {
-			"type":"number",
-			"id": "http://cs-proj-srv:8083/service-email/src/send_email.php/code",
-			"required":false
-		},
-		"data": {
-			"type":"object",
-			"id": "http://cs-proj-srv:8083/service-email/src/send_email.php/data",
-			"required":false,
-			"properties":{
-				"Body": {
-					"type":"string",
-					"id": "http://cs-proj-srv:8083/service-email/src/send_email.php/data/Body",
-					"required":false
-				},
-				"From": {
-					"type":"string",
-					"id": "http://cs-proj-srv:8083/service-email/src/send_email.php/data/From",
-					"required":false
-				},
-				"Subject": {
-					"type":"string",
-					"id": "http://cs-proj-srv:8083/service-email/src/send_email.php/data/Subject",
-					"required":false
-				},
-				"To": {
-					"type":"string",
-					"id": "http://cs-proj-srv:8083/service-email/src/send_email.php/data/To",
-					"required":false
-				}
-			}
-		},
-		"debug": {
-			"type":"object",
-			"id": "http://cs-proj-srv:8083/service-email/src/send_email.php/debug",
-			"required":false
-		}
-	}
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-03/schema",
+  "id": "http://cs-proj-srv:8083/service-email/src/send_email.php",
+  "required": true,
+  "properties": {
+    "code": {
+      "type": "number",
+      "id": "http://cs-proj-srv:8083/service-email/src/send_email.php/code",
+      "required": true
+    },
+    "data": {
+      "type": "object",
+      "id": "http://cs-proj-srv:8083/service-email/src/send_email.php/data",
+      "required": true,
+      "properties": {
+        "Body": {
+          "type": "string",
+          "id": "http://cs-proj-srv:8083/service-email/src/send_email.php/data/Body",
+          "required": true
+        },
+        "From": {
+          "type": "string",
+          "id": "http://cs-proj-srv:8083/service-email/src/send_email.php/data/From",
+          "required": true
+        },
+        "Subject": {
+          "type": "string",
+          "id": "http://cs-proj-srv:8083/service-email/src/send_email.php/data/Subject",
+          "required": true
+        },
+        "To": {
+          "type": "string",
+          "id": "http://cs-proj-srv:8083/service-email/src/send_email.php/data/To",
+          "required": true
+        }
+      }
+    },
+    "debug": {
+      "type": "object",
+      "id": "http://cs-proj-srv:8083/service-email/src/send_email.php/debug",
+      "required": true
+    }
+  }
 }
