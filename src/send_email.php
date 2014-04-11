@@ -7,40 +7,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	define('SENDER_EMAIL_ADDR', 'notifyhas@gmail.com');
 	define('SENDER_EMAIL_ADDR_PASSWORD', 'ctrl-alt-delete');
 	
-	//echo "Constants Created\n";
-	
-	$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 587,'tls');
-	$transport->setUsername(SENDER_EMAIL_ADDR);
-	$transport->setPassword(SENDER_EMAIL_ADDR_PASSWORD);
-	
-	//echo "Transport Created\n";
-	
-	$receiverAddress = $_POST["To"];
-	$emailSubject = $_POST["Subject"];
-	$emailBody = $_POST["Body"];
-	
-	//echo "Arguments Extracted\n";
-	
-	// Create the Mailer using your created Transport
-	$mailer = Swift_Mailer::newInstance($transport);
-	
-	// Create the message
-	$message = Swift_Message::newInstance();
-
-	// Give the message a subject
-	$message->setSubject($emailSubject);
-
-	// Set the From address with an associative array
-	$message->setFrom(array(SENDER_EMAIL_ADDR => SENDER_EMAIL_NAME));
-
-	// Set the To addresses with an associative array
-	$message->setTo(array($receiverAddress));
-
-	// Give it a body
-	$message->setBody($emailBody,'text/html');
-	
 	
 	try {
+	
+		//echo "Constants Created\n";
+	
+		$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 587,'tls');
+		$transport->setUsername(SENDER_EMAIL_ADDR);
+		$transport->setPassword(SENDER_EMAIL_ADDR_PASSWORD);
+	
+		//echo "Transport Created\n";
+	
+		$receiverAddress = $_POST["To"];
+		$emailSubject = $_POST["Subject"];
+		$emailBody = $_POST["Body"];
+	
+		//echo "Arguments Extracted\n";
+	
+		// Create the Mailer using your created Transport
+		$mailer = Swift_Mailer::newInstance($transport);
+	
+		// Create the message
+		$message = Swift_Message::newInstance();
+
+		// Give the message a subject
+		$message->setSubject($emailSubject);
+
+		// Set the From address with an associative array
+		$message->setFrom(array(SENDER_EMAIL_ADDR => SENDER_EMAIL_NAME));
+
+		// Set the To addresses with an associative array
+		$message->setTo(array($receiverAddress));
+
+		// Give it a body
+		$message->setBody($emailBody,'text/html');
+	
 		// Send the message!
 		$result = $mailer->send($message);
 		
