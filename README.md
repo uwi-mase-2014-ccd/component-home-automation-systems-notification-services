@@ -20,7 +20,17 @@ The _Send Email Notification_ web service is exposed by this component, with the
 ###Endpoint
 This component has been deployed to the UWI server at the endpoint: 
 
-    POST http://cs-proj-srv:8083/service-email/src/send_email.php
+    POST http://cs-proj-srv:8083/component-email/src/send_email.php
+
+This component has been deployed to a public server at the endpoint: 
+
+    POST http://ticketmanager.mysoftware.io:8100/component-email/src/send_email.php
+
+Note:
+This component has been deployed to a server that is provisioned by UWI and does not allow outbound connections.
+Because of this restriction, the Email Notification script will not successfully send any emails from this server.
+To allow other components to utilize the functionality, a clone of the script is deployed to a publicly accessible server.
+
 
 ###Arguments
     To: 
@@ -109,16 +119,5 @@ On Any Unexpected Error a response similar to the following sample response is r
 }
 ```
     Refer to schema: response-500.json
-
-####Deployed Server Notes:
-This component has been deployed to a server that is provisioned by UWI and does not allow outbound connections.
-Because of this restriction, the Email Notification script will not successfully send any emails from this server.
-To allow other components to utilize the functionality, a clone of the script is deployed to a publicly accessible 
-private server, at the endpoint:
-
-    POST http://uwi-has.appspot.com/email/
-
-
-
     
     
